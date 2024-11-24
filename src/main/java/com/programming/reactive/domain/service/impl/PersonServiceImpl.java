@@ -23,6 +23,7 @@ public class PersonServiceImpl implements IPersonService {
     public Mono<Person> createPerson(final String name) {
         final Person person = new Person();
                 person.setName(name);
+                person.setId(1l);
                 person.setPersonStatus(PersonStatus.PENDING);
 
         return Mono.fromCallable(() -> {
