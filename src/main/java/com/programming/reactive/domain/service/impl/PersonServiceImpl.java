@@ -12,6 +12,7 @@ import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
 import java.util.List;
+import java.util.UUID;
 
 @Slf4j
 @Service
@@ -23,7 +24,7 @@ public class PersonServiceImpl implements IPersonService {
     public Mono<Person> createPerson(final String name) {
         final Person person = new Person();
                 person.setName(name);
-                person.setId(1l);
+                person.setId(String.valueOf(UUID.randomUUID()));
                 person.setPersonStatus(PersonStatus.PENDING);
 
         return Mono.fromCallable(() -> {
@@ -36,7 +37,7 @@ public class PersonServiceImpl implements IPersonService {
     }
 
     @Override
-    public Mono<Person> getPerson(long id) {
+    public Mono<Person> getPerson(String id) {
         return Mono.fromCallable(() -> {
             log.info("Recovering person {}", id);
             return personRepository.get(id);
@@ -46,11 +47,11 @@ public class PersonServiceImpl implements IPersonService {
     }
 
     @Override
-    public Mono<Person> approveAccount(Long id) {
+    public Mono<Person> approveAccount(String id) {
         return getPerson(id)
             .flatMap(person -> Mono.fromCallable(() -> {
                 log.info("Processing person {} to approved", id);
-                return this.personRepository.save(person.withPersonStatus(PersonStatus.APPROVED));
+                return this.personRepository.update(person.withPersonStatus(PersonStatus.APPROVED));
             })
                 .subscribeOn(Schedulers.boundedElastic())
             );

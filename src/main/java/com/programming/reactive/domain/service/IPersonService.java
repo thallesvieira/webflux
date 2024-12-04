@@ -6,7 +6,7 @@ import reactor.core.publisher.Mono;
 
 public interface IPersonService {
     Mono<Person> createPerson(final String name);
-    Mono<Person> getPerson(final long id);
-    Mono<Person> approveAccount(Long id);
+    Mono<Person> getPerson(final String id);
+    Mono<Person> approveAccount(String id);
     Flux<Person> getApprovedPersons();
 }

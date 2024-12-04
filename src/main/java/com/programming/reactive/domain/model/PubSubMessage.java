@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class PubSubMessage {
-    private Long id;
+    private String id;
     private Person person;
 }

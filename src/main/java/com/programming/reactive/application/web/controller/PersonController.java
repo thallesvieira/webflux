@@ -30,7 +30,7 @@ public class PersonController {
     }
 
     @GetMapping(value= "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Mono<Person> getPerson(@PathVariable final Long id) {
+    public Mono<Person> getPerson(@PathVariable final String id) {
         log.info("Person to be recovered {}", id);
         return this.personService.getPerson(id)
                 .doOnNext(next-> log.info("Person recovered {}",id));

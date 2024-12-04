@@ -7,7 +7,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 public class Person {
-    private Long id;
+    private String id;
     private String name;
     @With
     private PersonStatus personStatus;

@@ -9,6 +9,9 @@ import java.util.List;
 @Component
 public interface IPersonRepository {
     Person save(final Person person);
-    Person get(final long id);
+
+    Person update(Person person);
+
+    Person get(final String id);
     List<Person> getPersonByStatus(final PersonStatus status);
 }

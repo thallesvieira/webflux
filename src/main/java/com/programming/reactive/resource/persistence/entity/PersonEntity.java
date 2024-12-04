@@ -6,20 +6,15 @@ import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbAttri
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbPartitionKey;
 
-//@Entity
-//@Table(name = "person")
 @Data
 @DynamoDbBean
 public class PersonEntity {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
     private String name;
-//    @Enumerated(EnumType.STRING)
     private PersonStatus personStatus;
 
     @DynamoDbPartitionKey
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
