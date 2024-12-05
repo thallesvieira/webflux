@@ -44,9 +44,9 @@ dependencies {
 	testImplementation("io.projectreactor:reactor-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
-	protobuf(files("lib/protos.tar.gz"))
-	protobuf(files("ext/"))
-	testProtobuf(files("lib/protos-test.tar.gz"))
+//	protobuf(files("lib/protos.tar.gz"))
+//	protobuf(files("ext/"))
+//	testProtobuf(files("lib/protos-test.tar.gz"))
 }
 
 protobuf {
