@@ -14,11 +14,11 @@ import java.net.URI;
 @Configuration
 public class AwsConfig {
     @Value("${AWS_ACCESS_URL}")
-    private String localstackUrl;// = "http://localhost:4566";
+    private String localstackUrl;
     @Value("${AWS_ACCESS_KEY_ID}")
-    private String awsAccessKeyId;// = "dummyAccessKey";
+    private String awsAccessKeyId;
     @Value("${AWS_SECRET_ACCESS_KEY}")
-    private String awsSecretAccessKey;// = "dummySecretKey";
+    private String awsSecretAccessKey;
 
     @Bean
     public DynamoDbClient dynamoDbClient() {
